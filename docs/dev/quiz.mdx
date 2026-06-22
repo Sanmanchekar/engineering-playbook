@@ -77,6 +77,28 @@ import Quiz from '@site/src/components/Quiz';
       explanation: "Target under 10 minutes. Slow CI compounds: every PR pays the tax, every flaky retry pays it twice."
     },
     {
+      q: "A bug is fixed on `release/1.4` and shipped to production. What MUST happen next?",
+      options: [
+        "Nothing — the fix is in production, we're done",
+        "Forward-port the fix to `main` (and any newer active release branches), or you'll re-ship the bug",
+        "Delete the release branch immediately",
+        "Open a new PR rewriting the fix from scratch on main"
+      ],
+      answer: 1,
+      explanation: "Every fix on `release/*` must be merged or cherry-picked into `main`. Otherwise `main` is missing the fix and the next release re-introduces the bug."
+    },
+    {
+      q: "When should you cut a `release/*` branch instead of shipping straight from `main`?",
+      options: [
+        "Always — every project needs release branches",
+        "Never — release branches are legacy",
+        "When you need a stabilization window, support multiple live versions, or have QA/security/store-review gates before shipping",
+        "Only on Fridays"
+      ],
+      answer: 2,
+      explanation: "Release branches add overhead. Use them when you have a real reason (stabilization, multi-version support, external review gates). Otherwise continuous-deploy from `main` is simpler."
+    },
+    {
       q: "What's the fastest possible rollback for a risky feature?",
       options: [
         "Revert the commit and redeploy (~10 min)",
