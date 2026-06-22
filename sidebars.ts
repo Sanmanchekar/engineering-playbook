@@ -33,6 +33,7 @@ const sidebars: SidebarsConfig = {
         'dev/git-workflow',
         'dev/code-review',
         'dev/ci-cd',
+        'dev/prioritization',
         'dev/quiz',
       ],
     },

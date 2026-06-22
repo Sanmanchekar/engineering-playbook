@@ -1,6 +1,6 @@
 ---
 title: Quiz — Dev Guides
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 import Quiz from '@site/src/components/Quiz';
@@ -97,6 +97,39 @@ import Quiz from '@site/src/components/Quiz';
       ],
       answer: 2,
       explanation: "Release branches add overhead. Use them when you have a real reason (stabilization, multi-version support, external review gates). Otherwise continuous-deploy from `main` is simpler."
+    },
+    {
+      q: "Your team has no fixed capacity allocation. KTLO work (tech debt, flaky tests, infra) keeps losing to features sprint after sprint. What's the systemic fix?",
+      options: [
+        "Work longer hours to fit it all in",
+        "Set a fixed capacity split (e.g., 70% roadmap / 20% KTLO / 10% bets) and protect the KTLO floor each cycle",
+        "Wait until things break, then fix them",
+        "Move tech debt into the features backlog and let it compete on RICE"
+      ],
+      answer: 1,
+      explanation: "Without a protected KTLO budget, debt always loses to features in the short term — until velocity catastrophically collapses. Fix the ratio first, prioritise within buckets after."
+    },
+    {
+      q: "Two RICE candidates: 'Add AI insights' (Reach 10000, Impact 3, Confidence 30%, Effort 12 weeks) and 'Rewrite invoice generator' (Reach 5000, Impact 1, Confidence 100%, Effort 2 weeks). Which wins?",
+      options: [
+        "AI insights — bigger reach and impact",
+        "Invoice rewrite — RICE score is 2500 vs 750",
+        "Whichever the founder likes",
+        "Neither, both are too uncertain"
+      ],
+      answer: 1,
+      explanation: "RICE = (R × I × C) / E. AI: (10000 × 3 × 0.3) / 12 = 750. Invoice: (5000 × 1 × 1.0) / 2 = 2500. Confidence is the killer of hand-wavy 'this will be huge' pitches."
+    },
+    {
+      q: "A stakeholder pushes back: 'this is critical, why isn't it being done?' What's the best framing?",
+      options: [
+        "'We don't have time'",
+        "'It's currently below the line on our roadmap. Here's the score, and here's what would need to drop to make room.'",
+        "'Talk to my manager'",
+        "'We hate that idea'"
+      ],
+      answer: 1,
+      explanation: "Anchor on the system, not on personal judgement. People argue with opinions but rarely argue with their own data. Give them the score, the comparison, and the trade-off."
     },
     {
       q: "What's the fastest possible rollback for a risky feature?",

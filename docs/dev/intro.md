@@ -16,6 +16,7 @@ Practical playbooks for the day-to-day of writing, reviewing, and shipping code.
 | [Git Workflow](./git-workflow) | Branching, commits, rebasing, hotfixes |
 | [Code Review](./code-review) | What to look for as reviewer and reviewee |
 | [CI/CD](./ci-cd) | Pipelines, gates, deploy strategies |
+| [Prioritisation](./prioritization) | Capacity allocation, RICE, Eisenhower, saying no |
 | [Quiz](./quiz) | Self-assessment |
 
 ## Before you start
