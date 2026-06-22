@@ -77,6 +77,7 @@ const sidebars: SidebarsConfig = {
         'api/rest-design',
         'api/graphql',
         'api/microservices',
+        'api/slas',
         'api/adr',
         'api/quiz',
       ],

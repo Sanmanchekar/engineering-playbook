@@ -1,6 +1,6 @@
 ---
 title: Quiz — API & Architecture
-sidebar_position: 6
+sidebar_position: 7
 ---
 
 import Quiz from '@site/src/components/Quiz';
@@ -64,6 +64,50 @@ import Quiz from '@site/src/components/Quiz';
       ],
       answer: 1,
       explanation: "Service boundaries that share DB and deploy lifecycle are not real boundaries. You've got all the cost of microservices with none of the autonomy."
+    },
+    {
+      q: "Difference between SLI, SLO, and SLA?",
+      options: [
+        "They're synonyms",
+        "SLI = the metric, SLO = your internal target, SLA = external contract with penalties",
+        "SLI is for engineers, SLO is for managers, SLA is for legal — all are the same number",
+        "SLA is the metric, SLO is the contract, SLI is the team"
+      ],
+      answer: 1,
+      explanation: "SLI is what you measure (e.g., p95 latency). SLO is your internal target. SLA is what you promise customers, usually with penalties. Always: SLA < SLO < actual performance."
+    },
+    {
+      q: "Service A depends synchronously on B (99.5%), C (99.9%), and D (99.95%). What's A's maximum possible availability?",
+      options: [
+        "99.95% (the best dependency)",
+        "99.5% (the worst dependency)",
+        "~99.35% (product of all dependencies: 0.995 × 0.999 × 0.9995)",
+        "99.99% (sum of dependencies)"
+      ],
+      answer: 2,
+      explanation: "Composite availability for sync dependencies is the product. You can't promise higher than your weakest critical-path chain — without redundancy or async patterns."
+    },
+    {
+      q: "Your service has used 100% of its error budget for the month with a week left. What should the team do?",
+      options: [
+        "Keep shipping features — the budget is just guidance",
+        "Freeze risky changes; prioritize reliability work until the budget resets",
+        "Quietly redefine the SLO to recover the budget",
+        "Page the on-call for every alert"
+      ],
+      answer: 1,
+      explanation: "Exhausted budget = signal to shift from feature work to reliability work. That's the entire point — error budgets make reliability vs. velocity a data-driven decision."
+    },
+    {
+      q: "Sales wants to promise customers '99.99% uptime' on a new service. You currently measure 99.7%. What's your response?",
+      options: [
+        "Sure, we'll figure it out post-launch",
+        "Push back — promise an SLA below what you can actually deliver (e.g., 99.5%), keep the buffer. Each extra '9' costs ~10× engineering effort",
+        "Agree and add it to the backlog",
+        "Just say yes and write better tests"
+      ],
+      answer: 1,
+      explanation: "Never promise an SLA you can't comfortably hit. The SLA should sit below the SLO, which sits below real performance. Over-deliver > under-deliver."
     },
     {
       q: "What goes in an ADR's 'Consequences' section?",

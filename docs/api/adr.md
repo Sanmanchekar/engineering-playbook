@@ -1,6 +1,6 @@
 ---
 title: Architecture Decision Records (ADRs)
-sidebar_position: 5
+sidebar_position: 6
 ---
 
 # Architecture Decision Records

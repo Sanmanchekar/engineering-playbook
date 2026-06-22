@@ -15,5 +15,6 @@ Designing systems and the interfaces between them. The decisions made here are t
 | [REST Design](./rest-design) | URL design, status codes, versioning, pagination |
 | [GraphQL](./graphql) | When to use it, schema design, common pitfalls |
 | [Microservices](./microservices) | When to split, when not to; communication patterns |
+| [SLIs, SLOs & SLAs](./slas) | Reliability targets, error budgets, cascading dependencies |
 | [ADRs](./adr) | Architecture Decision Records — template and examples |
 | [Quiz](./quiz) | Self-assessment |
