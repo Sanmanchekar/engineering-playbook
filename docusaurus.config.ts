@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'The Engineering Playbook',
   tagline: 'A living knowledge base for developers and QA — practical guides, checklists, and self-assessments.',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
 
   future: {
     v4: true,
