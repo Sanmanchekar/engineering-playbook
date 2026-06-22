@@ -1,0 +1,80 @@
+---
+title: Quiz — API & Architecture
+sidebar_position: 6
+---
+
+import Quiz from '@site/src/components/Quiz';
+
+# Quiz — API & Architecture
+
+<Quiz
+  title="Self-assessment: API & Architecture"
+  questions={[
+    {
+      q: "Which is the best RESTful URL?",
+      options: [
+        "GET /getUserOrders?userId=42",
+        "GET /users/42/orders",
+        "POST /getOrders {userId: 42}",
+        "GET /api?action=listOrders&user=42"
+      ],
+      answer: 1,
+      explanation: "URLs name resources (nouns). HTTP verb conveys the action. /users/42/orders is the canonical hierarchical resource."
+    },
+    {
+      q: "Your API authenticates the user but they're not allowed to perform the action. Right status code?",
+      options: [
+        "401 Unauthorized",
+        "403 Forbidden",
+        "404 Not Found",
+        "400 Bad Request"
+      ],
+      answer: 1,
+      explanation: "401 = auth missing or invalid. 403 = authenticated but not allowed. Different signals to the client."
+    },
+    {
+      q: "GraphQL N+1 problem — how to fix?",
+      options: [
+        "Use REST instead",
+        "Use a DataLoader pattern to batch and cache resolver calls within one request",
+        "Cache the whole response in Redis",
+        "Add more database replicas"
+      ],
+      answer: 1,
+      explanation: "DataLoader collects resolver calls and batches them into one DB query per request. Standard pattern in production GraphQL."
+    },
+    {
+      q: "When should a team adopt microservices?",
+      options: [
+        "Whenever a new project starts — it's the modern way",
+        "When multiple teams need deploy autonomy and the monolith's seams have proven painful",
+        "When the codebase exceeds 10,000 lines",
+        "Never — monoliths are always better"
+      ],
+      answer: 1,
+      explanation: "Microservices add real operational cost. Start with a well-modularized monolith. Extract services when actual pain justifies it."
+    },
+    {
+      q: "Two 'microservices' share a database and are always deployed together. What does this mean?",
+      options: [
+        "Best practice — close coordination",
+        "They're actually one service spread across two repos. Merge them.",
+        "Normal — services often share data",
+        "They need a third service to coordinate"
+      ],
+      answer: 1,
+      explanation: "Service boundaries that share DB and deploy lifecycle are not real boundaries. You've got all the cost of microservices with none of the autonomy."
+    },
+    {
+      q: "What goes in an ADR's 'Consequences' section?",
+      options: [
+        "The team's politics",
+        "What the decision enables, costs, and what new problems it creates",
+        "Just the upsides",
+        "A timeline"
+      ],
+      answer: 1,
+      explanation: "Future engineers care most about consequences — the trade-offs you accepted. Be honest about both the wins and the costs."
+    }
+  ]}
+/>

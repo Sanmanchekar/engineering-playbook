@@ -1,0 +1,134 @@
+---
+title: Quiz — The Ten Commandments
+sidebar_position: 12
+---
+
+import Quiz from '@site/src/components/Quiz';
+
+# Quiz — The Ten Commandments
+
+Answer all 10 questions, then click **Submit all** to see your score.
+
+<Quiz
+  title="Self-assessment: Ten Commandments"
+  questions={[
+    {
+      q: "You receive a vague task description from a PM. What do you do first?",
+      options: [
+        "Start coding the obvious interpretation — you can refactor later",
+        "Write a one-paragraph brief covering problem, audience, success, and out-of-scope, then confirm with the PM",
+        "Estimate it as 'large' and put it in the backlog",
+        "Ask the most senior engineer what to do"
+      ],
+      answer: 1,
+      explanation: "Commandment #1: Clarity Before Code. A 5-minute clarity check prevents weeks of wrong work."
+    },
+    {
+      q: "Which of these is acceptable in a feature PR?",
+      options: [
+        "'I'll add tests in a follow-up PR'",
+        "Snapshot tests with no assertions",
+        "No tests, because the code is 'obvious'",
+        "Tests covering the happy path and at least one error path"
+      ],
+      answer: 3,
+      explanation: "Commandment #2: Tests Are Not Optional. The minimum bar is happy path + at least one error path."
+    },
+    {
+      q: "Your PR is 1,800 lines. Reviewer says 'LGTM 👍' in 90 seconds. What's the most likely explanation?",
+      options: [
+        "Your code is exceptionally clear",
+        "The reviewer is highly skilled",
+        "The reviewer rubber-stamped it because it was too big to review properly",
+        "The diff is mostly auto-generated"
+      ],
+      answer: 2,
+      explanation: "Commandment #3: PRs over ~400 lines get rubber-stamped. Split into reviewable chunks."
+    },
+    {
+      q: "Which variable name violates the readability commandment most severely?",
+      options: [
+        "customerById",
+        "d",
+        "activeOrders",
+        "retryCount"
+      ],
+      answer: 1,
+      explanation: "Commandment #4: A single-letter variable conveys zero intent. Optimize for the reader."
+    },
+    {
+      q: "You're fixing an unrelated bug and notice a misleading comment in the same file. What do you do?",
+      options: [
+        "Leave it — it's out of scope",
+        "Fix the comment in the same PR if you're already changing nearby lines",
+        "File a Jira ticket and move on",
+        "Delete the entire file and rewrite from scratch"
+      ],
+      answer: 1,
+      explanation: "Commandment #5: No Broken Windows. Boy scout rule — leave the campground cleaner. Same PR is fine if scope-adjacent."
+    },
+    {
+      q: "Which is the cardinal sin of error handling?",
+      options: [
+        "Logging an error and re-raising it",
+        "try/except: pass (silent swallow)",
+        "Catching a specific exception and recovering",
+        "Wrapping an error with additional context"
+      ],
+      answer: 1,
+      explanation: "Commandment #6: Silent swallowing is the worst possible choice. Always handle, propagate, or fail loudly."
+    },
+    {
+      q: "Where should authorization checks live?",
+      options: [
+        "Client-side only — fastest UX",
+        "In a request header like x-is-admin: true",
+        "Server-side, verified on every request",
+        "In a comment so reviewers remember"
+      ],
+      answer: 2,
+      explanation: "Commandment #7: Secure by default. Client-side checks are advisory; the server is the source of truth."
+    },
+    {
+      q: "Which is structured logging best practice?",
+      options: [
+        "logger.info('something happened')",
+        "logger.info(f'user {user.id} did thing with result {result}')",
+        "logger.info('payment_processed', extra={'user_id': u.id, 'amount': a, 'outcome': 'success'})",
+        "print('debug')"
+      ],
+      answer: 2,
+      explanation: "Commandment #8: Structured logs with named fields are queryable; concatenated strings are not."
+    },
+    {
+      q: "Which comment is worth keeping?",
+      options: [
+        "# increment counter",
+        "# Retry 3x because Razorpay's webhook flakes during peak hours (PG-2024-117)",
+        "# TODO",
+        "# Loop through items"
+      ],
+      answer: 1,
+      explanation: "Commandment #9: Document the WHY. Restating what the code does is noise; explaining a non-obvious constraint is gold."
+    },
+    {
+      q: "You have a risky feature 80% ready. What's the move?",
+      options: [
+        "Ship the full thing to 100% of users immediately",
+        "Hold it in a branch for 6 more weeks until 'perfect'",
+        "Ship the smallest useful slice behind a feature flag, roll out 1% → 10% → 50% → 100%",
+        "Email it to the CEO for approval"
+      ],
+      answer: 2,
+      explanation: "Commandment #10: Ship Then Improve. Feature flags + gradual rollout = fastest learning + safest rollback."
+    }
+  ]}
+/>
+
+:::tip Scored 7+?
+You've internalized the commandments. Now go review someone else's PR using them as your checklist.
+:::
+
+:::warning Scored under 7?
+Re-read the commandments — they each take 2 minutes — and try again. This stuff compounds: every engineer who lives by these makes the whole team faster.
+:::

@@ -1,0 +1,69 @@
+---
+title: Quiz — DevOps
+sidebar_position: 6
+---
+
+import Quiz from '@site/src/components/Quiz';
+
+# Quiz — DevOps & Infrastructure
+
+<Quiz
+  title="Self-assessment: DevOps"
+  questions={[
+    {
+      q: "Why use multi-stage Docker builds?",
+      options: [
+        "They look more professional",
+        "To exclude dev dependencies and compilers from the runtime image",
+        "Because Docker requires it",
+        "To support multiple languages"
+      ],
+      answer: 1,
+      explanation: "Multi-stage = smaller runtime image, smaller attack surface, faster pulls. The build stage's compilers and dev deps never reach production."
+    },
+    {
+      q: "Your Kubernetes pod was OOM-killed. First thing to check?",
+      options: [
+        "Restart the cluster",
+        "Resource limits and `kubectl describe pod` for the OOM event",
+        "Switch to a different language",
+        "Increase replica count"
+      ],
+      answer: 1,
+      explanation: "OOM = exceeded memory limit. Describe shows the OOMKilled reason. Either raise limit or fix the leak."
+    },
+    {
+      q: "Best practice for alerts?",
+      options: [
+        "Alert on every metric anomaly",
+        "Alert on symptoms (user-facing impact), not causes",
+        "Only alert on CPU > 80%",
+        "Don't alert — just check dashboards"
+      ],
+      answer: 1,
+      explanation: "Cause-based alerts page on every minor blip. Symptom-based alerts page when users actually suffer."
+    },
+    {
+      q: "During a Sev 1 incident — what's the FIRST priority?",
+      options: [
+        "Find the root cause",
+        "Stop the bleeding (rollback, flag off, restart) even if you don't fully understand yet",
+        "Write the postmortem",
+        "Notify the press"
+      ],
+      answer: 1,
+      explanation: "Stop the bleeding first. Understanding can come after the immediate user pain is gone."
+    },
+    {
+      q: "Which observability signal is best for finding 'where did the latency go'?",
+      options: [
+        "Metrics",
+        "Logs",
+        "Distributed traces",
+        "Stack traces"
+      ],
+      answer: 2,
+      explanation: "Traces follow one request across services and show per-hop duration. Metrics aggregate; traces drill down."
+    }
+  ]}
+/>

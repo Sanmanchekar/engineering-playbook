@@ -1,0 +1,91 @@
+---
+title: Quiz — Dev Guides
+sidebar_position: 6
+---
+
+import Quiz from '@site/src/components/Quiz';
+
+# Quiz — Developer Guides
+
+<Quiz
+  title="Self-assessment: Developer Guides"
+  questions={[
+    {
+      q: "A new hire joins on Monday. What should they be able to do by end of day 1?",
+      options: [
+        "Read the codebase top to bottom",
+        "Clone, run `make up`, and see the app on localhost — in under 30 minutes",
+        "Deploy to production",
+        "Refactor the auth module"
+      ],
+      answer: 1,
+      explanation: "Local setup should be one command, under 30 minutes. Anything longer means the README has rotted."
+    },
+    {
+      q: "Which commit message follows Conventional Commits best?",
+      options: [
+        "fixed stuff",
+        "feat: add CSV export to dashboard",
+        "WIP",
+        "Updated files"
+      ],
+      answer: 1,
+      explanation: "feat:/fix:/chore:/etc. are machine-parseable AND human-readable. Useful for changelogs and release tooling."
+    },
+    {
+      q: "Your branch is behind main and you want to update it cleanly. What's safest?",
+      options: [
+        "git merge main into the branch (creates a noisy merge commit)",
+        "git rebase origin/main (clean linear history, on YOUR branch)",
+        "Force-push without lease",
+        "Delete and recreate the branch"
+      ],
+      answer: 1,
+      explanation: "Rebase your own short-lived branch onto main for clean history. Never rebase shared branches."
+    },
+    {
+      q: "You're reviewing a PR. What should you read FIRST?",
+      options: [
+        "The diff, top to bottom",
+        "The tests — they document intent",
+        "The author's previous PRs",
+        "Slack for context"
+      ],
+      answer: 1,
+      explanation: "Tests describe what the change is supposed to do. Reading tests first frames your review of the implementation."
+    },
+    {
+      q: "Which comment prefix says 'must fix before merge'?",
+      options: [
+        "nit:",
+        "suggestion:",
+        "blocking:",
+        "praise:"
+      ],
+      answer: 2,
+      explanation: "blocking: = merge-blocker. suggestion: = author decides. nit: = ignorable. Clear severity vocabulary keeps reviews efficient."
+    },
+    {
+      q: "Your CI pipeline takes 28 minutes. What's the cost?",
+      options: [
+        "Nothing, CI is free",
+        "Engineers context-switch, lose flow, and start force-pushing without waiting for green",
+        "Just slightly higher cloud bill",
+        "Better-tested code"
+      ],
+      answer: 1,
+      explanation: "Target under 10 minutes. Slow CI compounds: every PR pays the tax, every flaky retry pays it twice."
+    },
+    {
+      q: "What's the fastest possible rollback for a risky feature?",
+      options: [
+        "Revert the commit and redeploy (~10 min)",
+        "Roll back the previous container tag (~5 min)",
+        "Flip a feature flag OFF (~5 seconds)",
+        "Restore from backup"
+      ],
+      answer: 2,
+      explanation: "Feature flags are the fastest rollback — no deploy needed. Build risky features behind flags by default."
+    }
+  ]}
+/>

@@ -1,0 +1,47 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 3rem 0;
+  width: 100%;
+}
+
+.featureCol {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.featureCard {
+  display: flex;
+  flex-direction: column;
+  padding: 1.75rem;
+  border-radius: 14px;
+  border: 1px solid var(--ifm-color-emphasis-200);
+  background: var(--ifm-background-surface-color);
+  height: 100%;
+  width: 100%;
+  text-decoration: none !important;
+  color: inherit !important;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-3px);
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 10px 24px -8px rgba(79, 70, 229, 0.25);
+}
+
+.featureEmoji {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.featureTitle {
+  margin-bottom: 0.5rem;
+  color: var(--ifm-color-primary);
+}
+
+.featureDesc {
+  color: var(--ifm-font-color-secondary);
+  margin: 0;
+  font-size: 0.95rem;
+}

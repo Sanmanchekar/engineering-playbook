@@ -1,0 +1,80 @@
+---
+title: Quiz — QA Guides
+sidebar_position: 6
+---
+
+import Quiz from '@site/src/components/Quiz';
+
+# Quiz — QA Guides
+
+<Quiz
+  title="Self-assessment: QA Guides"
+  questions={[
+    {
+      q: "What does a healthy test pyramid look like?",
+      options: [
+        "Mostly E2E, few unit tests — covers more user journeys",
+        "Equal numbers of unit, integration, and E2E",
+        "Many unit tests, fewer integration, very few E2E",
+        "Only E2E tests since they test real user behavior"
+      ],
+      answer: 2,
+      explanation: "Unit tests are fast and cheap; E2E are slow and brittle. The healthy ratio is wide base of unit, smaller integration, fewest E2E."
+    },
+    {
+      q: "Which locator is most resilient to UI refactors?",
+      options: [
+        "page.click('.btn-primary-large')",
+        "page.click('#submit-22')",
+        "page.getByRole('button', {name: 'Submit order'})",
+        "xpath: //div[3]/div[2]/button"
+      ],
+      answer: 2,
+      explanation: "Role-based locators describe semantics, not styling. They survive class renames and DOM restructures."
+    },
+    {
+      q: "Your E2E test fails 1 in 20 runs. Right move?",
+      options: [
+        "Add a sleep(5000) and hope",
+        "Quarantine the test, file a ticket, fix the root cause",
+        "Lower the flake threshold so it's tolerated",
+        "Delete the test, it's annoying"
+      ],
+      answer: 1,
+      explanation: "Flaky tests in main destroy trust in the whole suite. Quarantine fast, fix root cause, then re-enable."
+    },
+    {
+      q: "Which bug title is best?",
+      options: [
+        "Pay button broken",
+        "[Checkout] 'Pay' disabled when expiry is 12/30",
+        "Stuff doesn't work in checkout",
+        "BUG"
+      ],
+      answer: 1,
+      explanation: "[Component] + Symptom + Condition. Filterable, searchable, immediately scannable."
+    },
+    {
+      q: "Severity vs priority — what's the difference?",
+      options: [
+        "They mean the same thing",
+        "Severity = technical impact, Priority = business urgency",
+        "Severity is set by PM, priority by QA",
+        "Severity matters for bugs, priority for features"
+      ],
+      answer: 1,
+      explanation: "Severity is how bad the failure is (QA/eng). Priority is when we fix it (PM/business). A typo can be low-sev but high-pri."
+    },
+    {
+      q: "A bug was fixed yesterday. What's the next non-negotiable step?",
+      options: [
+        "Close the ticket and move on",
+        "Add an automated regression test before closing",
+        "Email the team",
+        "Wait a week to make sure it doesn't come back"
+      ],
+      answer: 1,
+      explanation: "Every fixed bug gets a regression test. This single rule prevents 80%+ of repeat regressions."
+    }
+  ]}
+/>
